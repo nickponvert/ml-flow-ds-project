@@ -1,0 +1,13 @@
+{
+  "name": "PolynomialExpansion_71aa8ffe7ef6",
+  "shape": {
+    "inputs": [{
+      "port": "input",
+      "name": "scaledFeatures"
+    }],
+    "outputs": [{
+      "port": "output",
+      "name": "polyFeatures"
+    }]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "op": "polynomial_expansion",
+  "attributes": {
+    "degree": {
+      "long": 3
+    },
+    "input_size": {
+      "long": 4
+    }
+  }
+}

@@ -1,0 +1,76 @@
+version: '3.7'
+services:
+  jupyter:
+    image: jupyter/all-spark-notebook:1386e2046833
+    container_name: project_jupyter
+    volumes:
+      - "./data:/home/jovyan/data"
+      - "./notebooks:/home/jovyan/notebooks"
+      - "./project:/home/jovyan/project"
+      - "./tests:/home/jovyan/tests"
+      - "./requirements.txt:/home/jovyan/requirements.txt"
+      - "./.env:/home/jovyan/.env"
+      - "./zip_project.py:/home/jovyan/zip_project.py"
+    ports:
+      - "8888:8888"
+      - "4040-4050:4040-4050"
+    environment:
+      - AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+      - AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+      - MLFLOW_S3_ENDPOINT_URL=http://minio:9000
+      - MLFLOW_TRACKING_URI=http://mlflow:5000
+    depends_on:
+      - mlflow
+
+    
+  mlflow:
+    build:
+      context: .
+      dockerfile: Dockerfile_mlflow
+    container_name: project_mlflow
+    volumes:
+      - "./models/mlruns:/opt/mlruns"
+    ports:
+      - "5000:5000"
+    environment:
+      - AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+      - AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+      - MLFLOW_S3_ENDPOINT_URL=http://minio:9000
+      - S3_USE_SIGV4=True
+      - AWS_DEFAULT_REGION=us-east-1
+    depends_on:
+      - minio
+    entrypoint:
+      - /opt/conda/bin/mlflow 
+      - server 
+      - --host
+      - "0.0.0.0"
+      - --workers
+      - "1"
+      - --port
+      - "5000"
+      - --backend-store-uri 
+      - file:///opt/mlruns
+      - --default-artifact-root
+      - s3://artifacts
+
+
+  minio:
+    image: minio/minio
+    container_name: project_minio
+    volumes:
+      - "./models/s3:/data"
+    ports:
+      - "9000:9000"
+    environment:
+      - MINIO_ACCESS_KEY=AKIAIOSFODNN7EXAMPLE
+      - MINIO_SECRET_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    entrypoint:
+      - minio 
+      - server 
+      - /data
+
+
+networks:
+  default:
+    name: project_default

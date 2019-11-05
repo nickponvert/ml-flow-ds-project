@@ -1,0 +1,13 @@
+flavors:
+  mleap:
+    mleap_version: 0.8.1
+    model_data: mleap/model
+  python_function:
+    data: sparkml
+    env: conda.yaml
+    loader_module: mlflow.spark
+    python_version: 3.7.3
+  spark:
+    model_data: sparkml
+    pyspark_version: 2.4.4
+utc_time_created: '2019-11-04 12:24:46.269993'

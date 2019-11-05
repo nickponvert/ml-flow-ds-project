@@ -1,0 +1,16 @@
+.cache
+.ipython
+.local
+.vscode
+.env
+.jupyter
+.config
+.ivy2
+.bash_history
+.ipynb_checkpoints
+
+data/data
+__pycache__
+requirements.txt
+models/s3/.minio.sys
+docs/build

@@ -1,0 +1,13 @@
+{
+  "name": "StandardScaler_c1c1bcd3e500",
+  "shape": {
+    "inputs": [{
+      "port": "input",
+      "name": "features"
+    }],
+    "outputs": [{
+      "port": "output",
+      "name": "scaledFeatures"
+    }]
+  }
+}

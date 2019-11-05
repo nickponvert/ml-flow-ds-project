@@ -1,0 +1,22 @@
+{
+  "name": "VectorAssembler_21aac9bdb074",
+  "shape": {
+    "inputs": [{
+      "port": "input0",
+      "name": "sepal_length_cm"
+    }, {
+      "port": "input1",
+      "name": "sepal_width_cm"
+    }, {
+      "port": "input2",
+      "name": "petal_length_cm"
+    }, {
+      "port": "input3",
+      "name": "petal_width_cm"
+    }],
+    "outputs": [{
+      "port": "output",
+      "name": "features"
+    }]
+  }
+}

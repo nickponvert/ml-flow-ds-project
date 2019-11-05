@@ -1,0 +1,12 @@
+data
+notebooks
+models
+
+.cache
+.ipython
+.local
+.vscode
+.env
+.jupyter
+.config
+.ivy2
