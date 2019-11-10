@@ -3,7 +3,7 @@
 .local
 .vscode
 .env
-.jupyter
+.jupyter/migrated
 .config
 .ivy2
 .bash_history

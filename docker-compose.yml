@@ -11,6 +11,7 @@ services:
       - "./requirements.txt:/home/jovyan/requirements.txt"
       - "./.env:/home/jovyan/.env"
       - "./zip_project.py:/home/jovyan/zip_project.py"
+      - ".jupyter:/home/jovyan/.jupyter"
     ports:
       - "8888:8888"
       - "4040-4050:4040-4050"
