@@ -1,7 +1,8 @@
 # ml-flow-ds-project
 
+Forked from: https://gitlab.com/jan-teichmann/ml-flow-ds-project
 An example data science project using Mlflow.
-Detailed blog post on:  
+Detailed blog post on: https://towardsdatascience.com/complete-data-science-project-template-with-mlflow-for-non-dummies-d082165559eb
 
 Enable the virtual python environment with
 ```
