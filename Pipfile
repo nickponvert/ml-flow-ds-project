@@ -11,7 +11,7 @@ sphinx = "*"
 nbdime = "*"
 
 [packages]
-mlflow = "==1.3.0"
+mlflow = "==1.23.1"
 pyarrow = "==0.14.1"
 pyspark = "==2.4.4"
 mleap = "==0.8.1"
